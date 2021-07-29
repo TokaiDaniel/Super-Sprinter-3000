@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>User Stories</title>
+    <meta charset="UTF-8">
+    <title>User Stories</title>
 </head>
 <body>
 <h1>Super Sprinter 3000</h1>
 <a th:href="@{/story}">Add new User Story</a>
 <table>
-  <tr>
-    <th>Id</th>
-    <th>Story Title</th>
-    <th>User Story</th>
-    <th>Acceptance Criteria</th>
-    <th>Business Value</th>
-    <th>Status</th>
-    <th>Estimation</th>
-  </tr>
-  <tr th:each="user_story: ${user_stories}">
-    <td th:text="${user_story.getId()}"></td>
-    <td th:text="${user_story.getStoryTitle()}"></td>
-    <td th:text="${user_story.getStory()}"></td>
-    <td th:text="${user_story.getAcceptanceCriteria()}"></td>
-    <td th:text="${user_story.getBusinessValue()}"></td>
-    <td th:text="${user_story.getStatus()}"></td>
-    <td th:text="${user_story.getEstimation()}"></td>
-    <td><a th:href="@{/story/{id}(id=${user_story.getId()})}">Edit</a></td>
-  </tr>
+    <tr>
+        <th>Id</th>
+        <th>Story Title</th>
+        <th>User Story</th>
+        <th>Acceptance Criteria</th>
+        <th>Business Value</th>
+        <th>Status</th>
+        <th>Estimation</th>
+    </tr>
+    <tr th:each="user_story: ${user_stories}">
+        <td th:text="${user_story.getId()}"></td>
+        <td th:text="${user_story.getStoryTitle()}"></td>
+        <td th:text="${user_story.getStory()}"></td>
+        <td th:text="${user_story.getAcceptanceCriteria()}"></td>
+        <td th:text="${user_story.getBusinessValue()}"></td>
+        <td th:text="${user_story.getStatus()}"></td>
+        <td th:text="${user_story.getEstimation()}"></td>
+        <td><a th:href="@{/story/{id}(id=${user_story.getId()})}">Edit</a></td>
+    </tr>
 </table>
 </body>
 </html>

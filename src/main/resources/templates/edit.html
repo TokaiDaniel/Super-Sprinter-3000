@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit User Story</title>
+</head>
+
+<body>
+<h1>Edita User Story:</h1>
+<form th:action="@{api/v1/user_story/update}" method="POST" th:object="${user_story}">
+    <input type="hidden" th:value="${user_story.getId()}" th:field="*{id}">
+    <label for="storyTitle">Story Title:</label>
+    <input type="text" id="storyTitle" min="5" th:value="${user_story.getStoryTitle()}" th:field="*{storyTitle}"
+           required>
+
+    <label for="userStory">User Story:</label>
+    <textarea id="userStory" th:text="${user_story.getStory()}" th:field="*{story}" required></textarea>
+
+    <label for="acceptanceCriteria">Acceptance Criteria:</label>
+    <textarea id="acceptanceCriteria" th:text="${user_story.getAcceptanceCriteria()}" th:field="*{acceptanceCriteria}"
+              required></textarea>
+
+    <label for="businessValue">Business Value:</label>
+    <input type="number" id="businessValue" min="100" max="500" step="100" th:value="${user_story.getBusinessValue()}"
+           th:field="*{businessValue}">
+
+    <label for="estimation">Estimation:</label>
+    <input type="text" id="estimation" th:field="*{estimation}" min="30" max="2400" step="30"
+           th:value="${user_story.getEstimation()}">
+
+    <label for="status">Status:</label>
+    <select id="status" th:field="*{status}">
+        <option value="In progress">In Progress</option>
+        <option value="TODO">Todo</option>
+        <option value="Review">Review</option>
+        <option value="Done">Done</option>
+    </select>
+
+    <button type="submit">Save User Story</button>
+</form>
+</body>
+</html>
